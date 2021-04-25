@@ -1,0 +1,51 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Walls.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Main.gd" type="Script" id=3]
+[ext_resource path="res://Obstacle1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ParallaxBackground2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Obstacle2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Obstacle4.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Obstacle3.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 72, 1008, 0, 0, 0, 0, 648, 1008 )
+}
+
+[node name="Main" type="Node"]
+script = ExtResource( 3 )
+obstacle_scene = [ ExtResource( 4 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ) ]
+
+[node name="ParallaxBackground2" parent="." instance=ExtResource( 7 )]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 6 )]
+
+[node name="HUD" parent="." instance=ExtResource( 1 )]
+
+[node name="Walls" parent="." instance=ExtResource( 2 )]
+
+[node name="Spawner" type="Path2D" parent="."]
+position = Vector2( 0, 720 )
+curve = SubResource( 1 )
+
+[node name="SpawnLocation" type="PathFollow2D" parent="Spawner"]
+position = Vector2( 72, 1008 )
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 360, 148 )
+
+[node name="StartPosition" type="Position2D" parent="."]
+position = Vector2( 360, 148 )
+
+[connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+[connection signal="hit" from="Player" to="." method="game_over"]
