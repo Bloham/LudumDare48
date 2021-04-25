@@ -198,6 +198,10 @@ config/name="Ld 48 - Deeper And Deeper"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[audio]
+
+default_bus_layout="res://SFX/default_bus_layout.tres"
+
 [autoload]
 
 PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"

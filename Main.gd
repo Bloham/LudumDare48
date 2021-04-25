@@ -11,15 +11,22 @@ func new_game():
 	$Player.start($StartPosition.position)
 	
 	$StartTimer.start()
+	$StartSound.play()
 	$HUD.show_message("Get ready...")
 	yield($StartTimer, "timeout")
 	$SpawnTimer.wait_time = 1
 	$SpawnTimer.start()
+	$StartTimer.start()
+	yield($StartTimer, "timeout")
+	$Music.play()
+	
 	
 
 func game_over():
 	$SpawnTimer.stop()
 	$HUD.show_game_over()
+	$Music.stop()
+	$DeadSound.play()
 
 func _on_SpawnTimer_timeout():
 	var obstacle_spawn_location = $Spawner/SpawnLocation

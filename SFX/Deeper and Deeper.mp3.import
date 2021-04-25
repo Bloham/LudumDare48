@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Deeper and Deeper.mp3-774670d0271db244f05da249442da630.mp3str"
+
+[deps]
+
+source_file="res://SFX/Deeper and Deeper.mp3"
+dest_files=[ "res://.import/Deeper and Deeper.mp3-774670d0271db244f05da249442da630.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
