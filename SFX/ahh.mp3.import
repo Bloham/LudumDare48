@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ahh.mp3-76633dc70fd04ec03f7b1b0f50b09c18.mp3str"
+
+[deps]
+
+source_file="res://SFX/ahh.mp3"
+dest_files=[ "res://.import/ahh.mp3-76633dc70fd04ec03f7b1b0f50b09c18.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

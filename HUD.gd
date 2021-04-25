@@ -14,14 +14,16 @@ func show_message(text):
 func show_game_over():
 	show_message("Game Over")
 	yield($MessageTimer, "timeout")
-	$MessageLable.text = "Deeper and Deeper"
+	$MessageLable.text = "Mr. Games Fall"
 	$MessageLable.show()
 	yield(get_tree().create_timer(1.0), "timeout")
 	$Button.show()
+	$Tutorial.show()
 
 func _on_Button_pressed():
 	$Button.hide()
 	$MessageLable.hide()
+	$Tutorial.hide()
 	emit_signal("start_game")
 
 

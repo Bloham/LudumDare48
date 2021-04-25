@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://TileSet/cloud.png" type="Texture" id=1]
+[ext_resource path="res://dead_particles.gd" type="Script" id=2]
+
+[node name="dead_particles" type="StaticBody2D"]
+script = ExtResource( 2 )
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 32
+lifetime = 4.0
+one_shot = true
+preprocess = 2.6
+explosiveness = 0.6
+randomness = 0.41
+lifetime_randomness = 0.12
+texture = ExtResource( 1 )
+emission_shape = 1
+emission_sphere_radius = 30.0
+gravity = Vector2( 0, -10 )

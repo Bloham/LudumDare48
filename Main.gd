@@ -18,15 +18,17 @@ func new_game():
 	$SpawnTimer.start()
 	$StartTimer.start()
 	yield($StartTimer, "timeout")
-	$Music.play()
-	
-	
+	$Ahh.play()
+	if $Music.playing != true:
+		$Music.play()
 
 func game_over():
 	$SpawnTimer.stop()
 	$HUD.show_game_over()
 	$Music.stop()
+	$Ahh.stop()
 	$DeadSound.play()
+
 
 func _on_SpawnTimer_timeout():
 	var obstacle_spawn_location = $Spawner/SpawnLocation
@@ -46,5 +48,5 @@ func _on_SpawnTimer_timeout():
 	$HUD.update_score(score)
 	
 	#difficulty
-	if $SpawnTimer.wait_time >= 0.4:
-		$SpawnTimer.wait_time -= 0.01
+	if $SpawnTimer.wait_time >= 0.45:
+		$SpawnTimer.wait_time -= 0.005
